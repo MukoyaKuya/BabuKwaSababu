@@ -1,0 +1,582 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<!-- 1. HERO SECTION -->
+<section class="bg-[#2322c3] overflow-hidden min-h-screen flex flex-col">
+
+    <!-- Branding Header (Top-Centered, Exact Scale) -->
+    <header class="w-full text-center pt-6 md:pt-12 flex-shrink-0">
+        <div class="inline-flex flex-col items-center">
+            <h2
+                class="hero-logo-3d text-5xl sm:text-7xl md:text-9xl font-display uppercase tracking-tighter leading-[0.85]">
+                BABU
+            </h2>
+            <div class="text-[#facc15] font-bold tracking-[0.4em] mt-1 uppercase">
+                <span class="italic font-serif text-base md:text-2xl normal-case"
+                    style="font-family: 'Pacifico', cursive; font-weight: 400;">kwa</span>
+                <span class="text-xs md:text-xl lg:text-2xl"> SABABU</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area (Asymmetric Lane Grid) -->
+    <div
+        class="flex-grow max-w-7xl w-full mx-auto px-6 sm:px-12 lg:px-20 flex flex-col md:flex-row items-center md:items-center justify-between relative pb-16 md:pb-24">
+        <!-- Vertical stacking on mobile, side-by-side on desktop -->
+
+        <!-- Left Lane: messaging (RichText Architecture per reference) -->
+        <div class="prose prose-sm md:prose lg:prose-lg lg:max-w-[30rem] relative z-30 pt-8 md:pt-0 md:pl-12 lg:pl-16 text-center md:text-left">
+
+            <h1 class="h2 text-white font-black leading-[1.1] tracking-tight mb-8 text-2xl sm:text-3xl md:text-[2.75rem]"
+                style="font-family: 'Inter', sans-serif; text-transform: none;">
+                <span class="relative lg:inline-block text-[#facc15] md:text-white">
+                    Babu Owino
+                    <!-- Reference-Positioned Arrow (Relative to Name) -->
+                    <div
+                        class="hidden md:block absolute bottom-full left-[80%] md:left-full w-24 lg:w-32 z-30 pointer-events-none opacity-90 translate-x-[15%] translate-y-[70%] rotate-[5deg]">
+                        <svg viewBox="0 0 100 60" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            class="w-full h-auto overflow-visible">
+                            <path d="M0 45 C 30 15 70 15 90 25" stroke="#facc15" stroke-width="2.5" fill="none"
+                                stroke-linecap="round" />
+                            <path d="M 75 15 L 95 28 L 75 42" fill="none" stroke="#facc15" stroke-width="2.5"
+                                stroke-linejoin="round" stroke-linecap="round" />
+                        </svg>
+                    </div>
+                </span>
+                <span class="hidden lg:block"></span>
+                is running for Governor to make <br class="md:hidden"> Nairobi affordable, cleaner <br class="md:hidden"> and safer for everyone.
+            </h1>
+
+            <div class="mt-2 hidden md:block">
+                <a href="#volunteer" class="zohran-cta-wrap">
+                    <span class="zohran-cta">
+                        SUPPORT
+                    </span>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="md:hidden w-full flex justify-center mt-3 relative z-30">
+            <a href="#volunteer" class="zohran-cta-wrap inline-flex">
+                <span class="zohran-cta">
+                    SUPPORT
+                </span>
+            </a>
+        </div>
+
+        <!-- Right Lane: Portrait (Reference-Scientific Centering - Grouped & Grounded) -->
+        <div class="absolute bottom-0 right-0 md:right-[2%] lg:right-[5%] h-[55vh] sm:h-[65vh] md:h-[85vh] lg:h-[90vh] z-10 pointer-events-none flex items-end">
+            {% if campaign_settings.hero_image %}
+                <img src="{{ campaign_settings.hero_image.url }}" alt="Babu Owino"
+                    class="h-full w-auto object-contain object-bottom drop-shadow-[0px_20px_80px_rgba(0,0,0,0.5)]">
+            {% elif babu_image_exists %}
+                <img src="{% static 'images/babu.png' %}" alt="Babu Owino"
+                    class="h-full w-auto object-contain object-bottom drop-shadow-[0px_20px_80px_rgba(0,0,0,0.5)]">
+            {% else %}
+                <div class="w-[280px] md:w-[380px] h-[300px] md:h-full bg-white/5 border-2 border-dashed border-white/20 rounded-t-full flex items-center justify-center">
+                    <span class="text-white/20 font-display text-center">ADD IMAGE</span>
+                </div>
+            {% endif %}
+        </div>
+
+    </div>
+</section>
+
+<!-- 2. QUOTE + VIDEO SECTION -->
+<section class="py-16 md:py-24 bg-white px-6">
+    <div class="max-w-6xl mx-auto flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
+        <!-- Left: Quote Card -->
+        <div class="w-full lg:w-5/12 relative" style="padding-top: 2rem; padding-bottom: 2.5rem;">
+            <!-- Open quote mark -->
+            <div style="font-family: Georgia, serif; font-size: 7rem; line-height: 0.5; color: #ff9600; position: absolute; top: 0; left: 0.5rem; user-select: none;" aria-hidden="true">“</div>
+            <!-- Quote box with left border -->
+            <div style="border-left: 4px solid #ff9600; padding: 2.5rem 1.5rem 2.5rem 2rem; margin-top: 2rem;">
+                <p style="font-family: 'Inter', sans-serif; font-size: 1.55rem; font-weight: 900; line-height: 1.35; color: #2522e8; text-align: center; text-transform: none;">
+                    This campaign is for every person who believes in the dignity of their neighbors and that the government’s job is to actually make our lives better.
+                </p>
+            </div>
+            <!-- Close quote mark -->
+            <div style="font-family: Georgia, serif; font-size: 7rem; line-height: 0.5; color: #ff9600; position: absolute; bottom: 0; right: 0.5rem; user-select: none;" aria-hidden="true">”</div>
+        </div>
+
+        <!-- Right: YouTube Video -->
+        <div class="w-full lg:w-7/12">
+            {% if campaign_settings and campaign_settings.quote_video_url %}
+                <div class="w-full overflow-hidden shadow-lg" style="aspect-ratio: 16/9;">
+                    <iframe 
+                        src="{{ campaign_settings.get_quote_video_embed_url }}" 
+                        class="w-full h-full" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            {% else %}
+                <div class="w-full overflow-hidden flex flex-col items-center justify-center gap-3" style="aspect-ratio: 16/9; background: #0f0f0f;">
+                    <div class="flex items-center justify-center" style="width: 4rem; height: 4rem; border-radius: 50%; background: #e52d27;">
+                        <svg style="width: 2rem; height: 2rem; margin-left: 4px; color: white;" fill="currentColor" viewBox="0 0 20 20"><path d="M6.3 2.841A.7.7 0 005.25 3.443v13.114a.7.7 0 001.05.602l11.241-6.557a.7.7 0 000-1.204L6.3 2.841z"></path></svg>
+                    </div>
+                    <p style="font-family: 'Archivo Black', sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(255,255,255,0.5); margin-top: 0.5rem;">Campaign Video</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<!-- 3. MEET BABU SECTION -->
+<section class="py-32 bg-white px-6">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
+        <div class="w-full md:w-1/2">
+            <div class="aspect-[4/5] bg-gray-100 overflow-hidden shadow-2xl">
+                <div
+                    class="w-full h-full flex items-center justify-center text-gray-400 font-display uppercase tracking-widest">
+                    Action Photo</div>
+            </div>
+        </div>
+        <div class="w-full md:w-1/2">
+            <h2 class="text-5xl font-display text-[#2522e8] mb-8 uppercase">Meet Babu</h2>
+            <div class="space-y-6 text-lg text-gray-700 leading-relaxed font-medium">
+                <p>Babu Owino (born Paul Ongili Owino) is a selfless leader, an intellectual powerhouse, and a dedicated
+                    advocate for the people of Kenya. With a background in Actuarial Science and Law, he brings a unique
+                    blend of strategic thinking and justice-driven action.</p>
+                <p>Since his entry into politics, Babu has been at the forefront of the struggle for youth empowerment,
+                    equitable education, and constitutional integrity. He believes that a city and a nation can only
+                    thrive when the most vulnerable are uplifted.</p>
+                <p>He is not just running for office; he is running to spark a revolution of hope across every county.
+                </p>
+            </div>
+            <a href="{% url 'vision' %}"
+                class="inline-block mt-8 font-display text-[#2522e8] border-b-4 border-[#ff9600] text-xl uppercase">Read
+                Full Story</a>
+        </div>
+    </div>
+</section>
+
+<!-- 4. GET INVOLVED -->
+<section id="volunteer" class="bg-[#ff9600] pt-10 lg:pt-0 overflow-hidden" x-data="{ showVolunteerForm: false }">
+    <div class="max-w-[1500px] mx-auto grid grid-cols-1 lg:grid-cols-2 items-stretch">
+        <div class="px-6 lg:px-16 py-10 lg:py-14">
+            <div class="max-w-[560px]">
+                <div class="bg-white border-4 border-[#ff3b00] p-6 lg:p-8">
+                    <p class="text-[#ff3b00] font-display text-xs tracking-[0.2em] uppercase mb-2">Get Involved</p>
+                    <h2 class="font-display text-[#2522e8] text-5xl lg:text-6xl leading-[0.95] uppercase">Join Babu for Nairobi</h2>
+                    <p class="mt-4 text-[#111827] text-lg leading-tight">
+                        Join the over 50,000 volunteers already building momentum across Nairobi. We are organizing in every ward and we need your voice.
+                    </p>
+                    <p class="mt-3 text-[#111827] text-lg leading-tight">
+                        Sign up here and we will contact you with upcoming volunteer events. We cannot wait to see you.
+                    </p>
+                    <button type="button" @click="showVolunteerForm = !showVolunteerForm"
+                        class="mt-6 w-full bg-[#2522e8] text-white font-display text-xl uppercase tracking-widest rounded-full py-4 border-2 border-[#2522e8] hover:bg-[#1f1cbf] transition-colors">
+                        Sign Up To Volunteer
+                    </button>
+                </div>
+
+                <div id="volunteer-form-container" x-show="showVolunteerForm" x-transition class="mt-5 bg-white border-2 border-black p-5">
+                    <form hx-post="{% url 'volunteer_signup' %}" hx-target="#volunteer-form-container" hx-swap="outerHTML" class="space-y-4">
+                        {% csrf_token %}
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            <input type="text" name="name" placeholder="YOUR NAME" class="w-full p-3 border-2 border-black focus:outline-none font-display uppercase text-sm tracking-wide" required>
+                            <input type="email" name="email" placeholder="YOUR EMAIL" class="w-full p-3 border-2 border-black focus:outline-none font-display uppercase text-sm tracking-wide" required>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            <select name="skill" class="w-full p-3 border-2 border-black focus:outline-none font-display uppercase text-sm tracking-wide appearance-none bg-white" required>
+                                <option value="other">Select your skill</option>
+                                <option value="canvassing">Canvassing</option>
+                                <option value="digital">Digital / Social Media</option>
+                                <option value="events">Event Planning</option>
+                                <option value="legal">Legal / Compliance</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <input type="text" name="message" placeholder="HOW YOU CAN HELP" class="w-full p-3 border-2 border-black focus:outline-none font-display uppercase text-sm tracking-wide">
+                        </div>
+                        <button type="submit" class="w-full bg-[#2522e8] text-white font-display text-sm uppercase tracking-widest rounded-full py-3">
+                            Confirm Volunteer Signup
+                        </button>
+                    </form>
+                </div>
+
+                <div class="mt-8 flex items-center gap-6">
+                    <div class="font-display text-[#2522e8] uppercase text-lg leading-tight max-w-[220px]">
+                        Join the biggest grassroots campaign in Nairobi history
+                    </div>
+                    <svg class="w-14 h-8 text-[#ff3b00]" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 20C45 20 58 34 88 34" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                        <path d="M77 24L91 35L76 37" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    {% if videos %}
+                    <button type="button" @click="$dispatch('open-video', { url: '{{ videos.0.embed_url|safe }}' })"
+                        class="group relative w-[240px] h-[140px] rounded-[26px] overflow-hidden border-4 border-[#2522e8] shrink-0">
+                        <img src="{{ videos.0.thumbnail_url }}" alt="Campaign video" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <span class="absolute inset-0 flex items-center justify-center">
+                            <span class="w-14 h-14 bg-[#ff3b00] rounded-full flex items-center justify-center text-white shadow-lg">
+                                <svg class="w-7 h-7 ml-0.5" fill="currentColor" viewBox="0 0 20 20"><path d="M6.3 2.841A.7.7 0 005.25 3.443v13.114a.7.7 0 001.05.602l11.241-6.557a.7.7 0 000-1.204L6.3 2.841z"></path></svg>
+                            </span>
+                        </span>
+                    </button>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="relative min-h-[620px] lg:min-h-[760px]">
+            <img src="https://images.unsplash.com/photo-1531206715517-5c2c8f4a1f8f?auto=format&fit=crop&q=80"
+                 alt="Campaign crowd" class="w-full h-full object-cover">
+        </div>
+    </div>
+</section>
+
+<!-- 5. THE PLATFORM (Timeline style) -->
+<section class="py-32 bg-white px-6">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-20">
+        <div class="w-full md:w-1/3 md:sticky md:top-32 h-fit">
+            <span class="text-[#ff9600] font-display text-sm tracking-widest uppercase">The Platform</span>
+            <h2 class="text-5xl font-display text-[#2522e8] mt-4 leading-tight uppercase">
+                Nairobi is too <br> expensive. <br> Babu will <br> lower costs.
+            </h2>
+        </div>
+
+        <div class="w-full md:w-2/3 relative pl-12">
+            <div class="absolute left-0 top-0 w-1 h-full bg-[#ff9600]"></div>
+            <div class="space-y-24">
+                {% for issue in issues %}
+                <div class="relative">
+                    <div
+                        class="absolute -left-[54px] top-2 w-4 h-4 rounded-full bg-[#ff9600] border-4 border-white shadow-md">
+                    </div>
+                    <h3 class="text-3xl font-display text-[#2522e8] mb-4 uppercase">{{ issue.title }}</h3>
+                    <p class="text-gray-600 text-lg max-w-2xl leading-relaxed">
+                        {{ issue.description }}
+                    </p>
+                    <a href="#"
+                        class="inline-block mt-4 font-bold border-b-2 border-[#2522e8] uppercase tracking-widest text-sm">Read
+                        More</a>
+                </div>
+                {% empty %}
+                <p class="text-gray-400 italic">No platform issues added yet.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 6. PRESS CAROUSEL (Blue) -->
+<section class="bg-[#2522e8] py-32 px-6 overflow-hidden">
+    <div class="max-w-7xl mx-auto mb-16">
+        <h2 class="text-5xl font-display text-white text-center uppercase tracking-tighter">Featured Press</h2>
+    </div>
+
+    <!-- Horizontal Overflow Container -->
+    <div class="flex overflow-x-auto pb-12 scrollbar-hide px-4 md:px-20 -mx-6">
+        {% for article in news_articles %}
+        <div class="flex-shrink-0 w-[320px] md:w-[400px]">
+            <div class="press-card">
+                <div class="press-edge-top"></div>
+                <div class="press-edge-bottom"></div>
+                <!-- Dynamic Masthead based on Source -->
+                <div class="press-masthead">
+                    {% if "Standard" in article.source %}
+                        <div class="publisher-standard">The Standard</div>
+                    {% elif "Nation" in article.source %}
+                        <div class="publisher-nation">
+                            <span class="publisher-nation-small">THE</span>
+                            <span class="publisher-nation-main">Nation</span>
+                        </div>
+                    {% elif "Star" in article.source %}
+                        <div class="publisher-star">THE STAR</div>
+                    {% else %}
+                        <div class="publisher-generic">{{ article.source }}</div>
+                    {% endif %}
+                </div>
+
+                <h3 class="press-headline">
+                    "{{ article.headline }}"
+                </h3>
+
+                <div class="press-excerpt">
+                    {% if article.excerpt %}
+                        {{ article.excerpt }}
+                    {% else %}
+                        Babu Owino's latest initiative aimed at transforming Nairobi's economic landscape has garnered significant attention from major news outlets, highlighting the movement's growing momentum...
+                    {% endif %}
+                </div>
+
+                <a href="{{ article.link }}" class="press-read-more group">
+                    READ MORE 
+                    <span class="ml-2 font-sans tracking-normal transition-transform group-hover:px-1">></span>
+                </a>
+            </div>
+        </div>
+        {% empty %}
+        <div class="w-full text-center py-20">
+            <p class="text-white/50 italic font-display uppercase tracking-widest text-xl">Latest news entries will appear here.</p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- 7. ENDORSEMENTS -->
+<section class="bg-[#ff9600] py-32 px-6">
+    <div class="max-w-7xl mx-auto text-center">
+        <h2 class="text-5xl font-display text-[#111827] mb-20 uppercase">Endorsements</h2>
+        <div class="flex flex-wrap justify-center gap-4">
+            {% for endorsement in endorsements %}
+            <div
+                class="bg-[#2522e8] text-white px-6 py-3 rounded-full font-display text-sm whitespace-nowrap uppercase tracking-wide">
+                {{ endorsement.name }}{% if endorsement.organization %} - {{ endorsement.organization }}{% endif %}
+            </div>
+            {% empty %}
+            <p class="text-blue-900 italic">Growing support for the movement.</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- 6.5 VIDEOS SECTION -->
+<section class="bg-white py-24 overflow-hidden" x-data="{ 
+    skip: 1,
+    atBeginning: true,
+    atEnd: false,
+    next() {
+        this.atBeginning = false;
+        this.$refs.slider.scrollBy({ left: this.$refs.slider.clientWidth * this.skip, behavior: 'smooth' });
+    },
+    prev() {
+        this.atEnd = false;
+        this.$refs.slider.scrollBy({ left: -this.$refs.slider.clientWidth * this.skip, behavior: 'smooth' });
+    },
+    checkScroll() {
+        const slider = this.$refs.slider;
+        this.atBeginning = slider.scrollLeft === 0;
+        this.atEnd = Math.abs(slider.scrollWidth - (slider.scrollLeft + slider.clientWidth)) < 1;
+    }
+}" x-init="checkScroll()">
+    <div class="max-w-7xl mx-auto px-6 relative">
+        <h2 class="text-5xl font-display text-[#2522e8] text-center mb-16 uppercase tracking-tight">Videos</h2>
+        
+        <!-- Slider Container -->
+        <div class="relative group">
+            <!-- Navigation Buttons -->
+            <button @click="prev()" 
+                    x-show="!atBeginning"
+                    class="absolute left-0 top-1/2 -translate-y-1/2 z-30 bg-white shadow-[4px_4px_0px_#2522e8] border-2 border-[#2522e8] p-3 rounded-full text-[#2522e8] transition-all hover:scale-110 hover:-translate-x-1 -ml-6">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M15 19l-7-7 7-7"></path></svg>
+            </button>
+            
+            <button @click="next()" 
+                    x-show="!atEnd"
+                    class="absolute right-0 top-1/2 -translate-y-1/2 z-30 bg-white shadow-[-4px_4px_0px_#2522e8] border-2 border-[#2522e8] p-3 rounded-full text-[#2522e8] transition-all hover:scale-110 hover:translate-x-1 -mr-6">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M9 5l7 7-7 7"></path></svg>
+            </button>
+
+            <!-- Scrollable Area -->
+            <div x-ref="slider" @scroll.debounce.50ms="checkScroll()"
+                 class="flex overflow-x-auto gap-8 scrollbar-hide snap-x snap-mandatory pb-8">
+                {% for video in videos %}
+                <div class="flex-shrink-0 w-80 md:w-[480px] snap-start transition-transform duration-300 hover:-translate-y-2">
+                    <!-- Thumbnail Card -->
+                    <div class="relative aspect-video rounded-2xl overflow-hidden shadow-xl group/video cursor-pointer mb-6 border-2 border-[#2522e8]/5"
+                         @click="$dispatch('open-video', { url: '{{ video.embed_url|safe }}' })">
+                        <img src="{{ video.thumbnail_url }}" alt="{{ video.title }}" class="w-full h-full object-cover transition-transform duration-700 group-hover/video:scale-110">
+                        <!-- Play Overlay -->
+                        <div class="absolute inset-0 bg-[#2522e8]/10 group-hover/video:bg-transparent transition-colors duration-300 flex items-center justify-center">
+                            <div class="w-20 h-20 bg-[#2522e8] text-white rounded-full flex items-center justify-center transition-all duration-300 group-hover/video:scale-125 shadow-2xl group-hover/video:bg-[#ff9600]">
+                                <svg class="w-10 h-10 ml-1.5" fill="currentColor" viewBox="0 0 20 20"><path d="M6.3 2.841A.7.7 0 005.25 3.443v13.114a.7.7 0 001.05.602l11.241-6.557a.7.7 0 000-1.204L6.3 2.841z"></path></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Title -->
+                    <h3 class="text-[#2522e8] font-display uppercase text-xl leading-tight line-clamp-2 hover:text-[#ff9600] transition-colors cursor-pointer"
+                        @click="$dispatch('open-video', { url: '{{ video.embed_url|safe }}' })">
+                        {{ video.title }}
+                    </h3>
+                </div>
+                {% empty %}
+                <div class="w-full text-center py-32 bg-gray-50 rounded-3xl border-4 border-dashed border-gray-200">
+                    <p class="text-gray-400 font-display text-2xl uppercase tracking-widest">Campaign Media incoming.</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- VIDEO LIGHTBOX MODAL (Global) -->
+<div x-data="{ open: false, url: '' }" 
+     @open-video.window="open = true; url = $event.detail.url"
+     x-show="open" 
+     class="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8"
+     style="display: none;">
+    <!-- Backdrop -->
+    <div x-show="open" 
+         x-transition:enter="transition ease-out duration-300"
+         x-transition:enter-start="opacity-0"
+         x-transition:enter-end="opacity-100"
+         x-transition:leave="transition ease-in duration-200"
+         x-transition:leave-start="opacity-100"
+         x-transition:leave-end="opacity-0"
+         @click="open = false; url = ''"
+         class="absolute inset-0 bg-black/95"></div>
+    
+    <!-- Modal Content -->
+    <div x-show="open"
+         x-transition:enter="transition ease-out duration-300"
+         x-transition:enter-start="opacity-0 scale-95"
+         x-transition:enter-end="opacity-100 scale-100"
+         x-transition:leave="transition ease-in duration-200"
+         x-transition:leave-start="opacity-100 scale-100"
+         x-transition:leave-end="opacity-0 scale-95"
+         class="relative w-full max-w-5xl aspect-video bg-black shadow-2xl rounded-2xl overflow-hidden border border-white/10">
+        
+        <button @click="open = false; url = ''" class="absolute top-4 right-4 z-50 text-white hover:text-gray-300 transition-colors bg-black/50 p-2 rounded-full">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+
+        <template x-if="url">
+            <iframe :src="url + '?autoplay=1'" class="w-full h-full" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </template>
+    </div>
+</div>
+
+<!-- 8. SUBSCRIBE SECTION (Envelope on orange) -->
+<section class="bg-[#ff9600] py-20 md:py-24 px-4 sm:px-6">
+    <div class="relative mx-auto max-w-6xl"
+         x-data="{
+            constituency: '',
+            ward: '',
+            locations: {
+                'Westlands': ['Kitisuru', 'Parklands/Highridge', 'Karura', 'Kangemi', 'Mountain View'],
+                'Dagoretti North': ['Kilimani', 'Kawangware', 'Gatina', 'Kileleshwa', 'Kabiro'],
+                'Dagoretti South': ['Mutu-ini', 'Ngand\'u', 'Riruta', 'Uthiru/Ruthimitu', 'Waithaka'],
+                'Lang\'ata': ['Karen', 'Nairobi West', 'Mugumo-ini', 'South C', 'Nyayo Highrise'],
+                'Kibra': ['Laini Saba', 'Lindi', 'Makina', 'Woodley/Kenyatta Golf Course', 'Sarang\'ombe'],
+                'Roysambu': ['Roysambu', 'Garden Estate', 'Ridgeways', 'Githurai', 'Kahawa West', 'Zimmerman', 'Kahawa'],
+                'Kasarani': ['Clay City', 'Mwiki', 'Kasarani', 'Njiru', 'Ruai'],
+                'Ruaraka': ['Baba Dogo', 'Utalii', 'Mathare North', 'Lucky Summer', 'Korogocho'],
+                'Embakasi South': ['Imara Daima', 'Kwa Njenga', 'Kwa Reuben', 'Pipeline', 'Kware'],
+                'Embakasi North': ['Kariobangi North', 'Dandora Area I', 'Dandora Area II', 'Dandora Area III', 'Dandora Area IV'],
+                'Embakasi Central': ['Kayole North', 'Kayole Central', 'Kayole South', 'Komarock', 'Matopeni/ Spring Valley'],
+                'Embakasi East': ['Upper Savannah', 'Lower Savannah', 'Embakasi', 'Utawala', 'Mihang\'o'],
+                'Embakasi West': ['Umoja I', 'Umoja II', 'Mowlem', 'Kariobangi South'],
+                'Makadara': ['Maringo/ Hamza', 'Viwandani', 'Harambee', 'Makongeni'],
+                'Kamukunji': ['Pumwani', 'Eastleigh North', 'Eastleigh South', 'Airbase', 'California'],
+                'Starehe': ['Nairobi Central', 'Ngara', 'Pangani', 'Ziwani/ Kariokor', 'Landimawe', 'South B'],
+                'Mathare': ['Hospital', 'Mabatini', 'Huruma', 'Ngei', 'Mlango Kubwa', 'Kiamaiko']
+            },
+            get wards() {
+                return this.constituency ? this.locations[this.constituency] : [];
+            }
+         }" id="newsletter-form-container">
+        <!-- Floating shadow under envelope -->
+        <div class="pointer-events-none absolute inset-x-10 -bottom-5 h-10 rounded-full bg-black/25 blur-xl md:inset-x-24" aria-hidden="true"></div>
+
+        <!-- Envelope body -->
+        <div class="relative z-20 rounded-b-[2rem] rounded-t-2xl border-2 p-[4px] md:p-1" style="border-color: #b7ad9f; background: linear-gradient(180deg, #ece6dc 0%, #ddd4c7 100%); box-shadow: 0 24px 42px -14px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.65);">
+            <!-- Inner fold triangles -->
+            <div class="pointer-events-none absolute left-0 top-0 h-24 w-1/2" style="background: linear-gradient(180deg, rgba(190,178,160,0.45), rgba(190,178,160,0)); clip-path: polygon(0 0, 100% 0, 0 100%);" aria-hidden="true"></div>
+            <div class="pointer-events-none absolute right-0 top-0 h-24 w-1/2" style="background: linear-gradient(180deg, rgba(190,178,160,0.45), rgba(190,178,160,0)); clip-path: polygon(0 0, 100% 0, 100% 100%);" aria-hidden="true"></div>
+            <div class="pointer-events-none absolute inset-x-0 top-0 h-20" style="background: linear-gradient(180deg, rgba(255,255,255,0.15), rgba(255,255,255,0)); clip-path: polygon(0 0, 100% 0, 50% 100%);" aria-hidden="true"></div>
+
+            <!-- Inner letter -->
+            <div class="relative overflow-hidden rounded-b-[1.8rem] rounded-t-xl border border-dashed border-black/15 bg-[#fdfcf9] px-6 py-8 md:px-10 md:py-10" style="box-shadow: inset 0 0 0 1px rgba(255,255,255,0.85);">
+                <!-- Paper grain + ruled lines -->
+                <div class="pointer-events-none absolute inset-0 opacity-[0.22] bg-[radial-gradient(circle_at_20%_20%,rgba(0,0,0,0.08)_0_1px,transparent_1px),radial-gradient(circle_at_80%_70%,rgba(0,0,0,0.06)_0_1px,transparent_1px)] bg-[length:14px_14px,18px_18px]" aria-hidden="true"></div>
+                <div class="pointer-events-none absolute inset-x-0 top-28 h-px bg-gradient-to-r from-transparent via-neutral-300/45 to-transparent" aria-hidden="true"></div>
+                <div class="pointer-events-none absolute inset-x-0 top-44 h-px bg-gradient-to-r from-transparent via-neutral-300/35 to-transparent" aria-hidden="true"></div>
+
+                <!-- Corner seams -->
+                <div class="pointer-events-none absolute inset-y-8 left-3 w-px bg-gradient-to-b from-transparent via-neutral-400/25 to-transparent md:left-5" aria-hidden="true"></div>
+                <div class="pointer-events-none absolute inset-y-8 right-3 w-px bg-gradient-to-b from-transparent via-neutral-400/25 to-transparent md:right-5" aria-hidden="true"></div>
+                <!-- Decorative stamp -->
+                <div class="pointer-events-none absolute right-5 top-5 hidden h-14 w-14 rotate-3 rounded border-2 border-dashed border-[#2522e8]/25 bg-[#eef0ff]/75 sm:block" aria-hidden="true">
+                    <span class="flex h-full items-center justify-center font-display text-[8px] font-black uppercase leading-tight tracking-wider text-[#ff9600]">NAIROBI</span>
+                </div>
+                <!-- Wax seal -->
+                <div class="pointer-events-none absolute -bottom-2 left-1/2 hidden h-8 w-8 -translate-x-1/2 rounded-full border border-[#8d1f1f] bg-gradient-to-b from-[#d24646] to-[#9b1e1e] shadow-[0_4px_10px_rgba(0,0,0,0.28)] md:block" aria-hidden="true"></div>
+
+        <div class="relative z-10 mb-8 space-y-4 sm:pr-16">
+            <p class="text-[#2522e8]/80 font-sans text-[11px] font-semibold uppercase tracking-[0.2em]">Stay informed</p>
+            <div class="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
+                <div class="flex-shrink-0">
+                    <h2 class="font-display text-3xl uppercase tracking-tight text-[#2522e8] md:text-4xl">Subscribe</h2>
+                    <p class="mt-1 font-display text-sm font-bold uppercase tracking-widest text-[#2522e8]">Babu for Nairobi Governor</p>
+                </div>
+                <div class="max-w-xl rounded-lg border border-neutral-100 bg-neutral-50 px-4 py-3 text-xs leading-relaxed text-neutral-600">
+                    By signing up, you consent to receive donation asks and campaign updates from Babu for Nairobi. Msg &amp; data rates may apply. Unsubscribe at any time by replying STOP.
+                </div>
+            </div>
+        </div>
+
+        <form hx-post="{% url 'newsletter_signup' %}" hx-target="#newsletter-form-container" hx-swap="outerHTML"
+            class="space-y-6">
+            {% csrf_token %}
+
+            <!-- Row 1: Identity -->
+            <div class="grid grid-cols-1 gap-5 md:grid-cols-3 md:gap-6">
+                <div class="flex flex-col gap-1.5">
+                    <label class="text-[10px] font-bold uppercase tracking-widest text-[#2522e8]" for="sub-email">Email Address *</label>
+                    <input id="sub-email" type="email" name="email" placeholder="you@example.com" required
+                        class="min-h-11 w-full rounded-lg border border-neutral-300 bg-white px-3 py-2.5 font-sans text-base text-neutral-900 placeholder:text-neutral-400 transition-colors focus:border-[#2522e8] focus:outline-none focus:ring-2 focus:ring-[#2522e8]/30">
+                </div>
+                <div class="flex flex-col gap-1.5">
+                    <label class="text-[10px] font-bold uppercase tracking-widest text-[#2522e8]" for="sub-first">First Name</label>
+                    <input id="sub-first" type="text" name="first_name" placeholder="First name"
+                        class="min-h-11 w-full rounded-lg border border-neutral-300 bg-white px-3 py-2.5 font-sans text-base text-neutral-900 placeholder:text-neutral-400 transition-colors focus:border-[#2522e8] focus:outline-none focus:ring-2 focus:ring-[#2522e8]/30">
+                </div>
+                <div class="flex flex-col gap-1.5">
+                    <label class="text-[10px] font-bold uppercase tracking-widest text-[#2522e8]" for="sub-last">Last Name</label>
+                    <input id="sub-last" type="text" name="last_name" placeholder="Last name"
+                        class="min-h-11 w-full rounded-lg border border-neutral-300 bg-white px-3 py-2.5 font-sans text-base text-neutral-900 placeholder:text-neutral-400 transition-colors focus:border-[#2522e8] focus:outline-none focus:ring-2 focus:ring-[#2522e8]/30">
+                </div>
+            </div>
+
+            <!-- Row 2: Location & Phone -->
+            <div class="grid grid-cols-1 gap-5 md:grid-cols-3 md:gap-6">
+                <div class="flex flex-col gap-1.5">
+                    <label class="text-[10px] font-bold uppercase tracking-widest text-[#2522e8]" for="sub-constituency">Constituency *</label>
+                    <select id="sub-constituency" name="constituency" x-model="constituency" @change="ward = ''" required
+                        class="min-h-11 w-full cursor-pointer appearance-none rounded-lg border border-neutral-300 bg-white bg-[length:1.1rem] bg-[position:right_0.65rem_center] bg-no-repeat px-3 py-2.5 pr-10 font-sans text-base text-neutral-900 transition-colors focus:border-[#2522e8] focus:outline-none focus:ring-2 focus:ring-[#2522e8]/30"
+                        style="background-image: url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 fill=%27none%27 viewBox=%270 0 24 24%27 stroke=%27%232522e8%27 stroke-width=%272%27%3E%3Cpath stroke-linecap=%27round%27 stroke-linejoin=%27round%27 d=%27M19 9l-7 7-7-7%27/%3E%3C/svg%3E');">
+                        <option value="">Choose Constituency</option>
+                        <template x-for="name in Object.keys(locations)" :key="name">
+                            <option :value="name" x-text="name"></option>
+                        </template>
+                    </select>
+                </div>
+                <div class="flex flex-col gap-1.5">
+                    <label class="text-[10px] font-bold uppercase tracking-widest text-[#2522e8]" for="sub-ward">Sub-County / Ward *</label>
+                    <select id="sub-ward" name="ward" x-model="ward" :disabled="!constituency" required
+                        class="min-h-11 w-full cursor-pointer appearance-none rounded-lg border border-neutral-300 bg-white bg-[length:1.1rem] bg-[position:right_0.65rem_center] bg-no-repeat px-3 py-2.5 pr-10 font-sans text-base text-neutral-900 transition-colors focus:border-[#2522e8] focus:outline-none focus:ring-2 focus:ring-[#2522e8]/30 disabled:cursor-not-allowed disabled:bg-neutral-100 disabled:text-neutral-500"
+                        style="background-image: url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 fill=%27none%27 viewBox=%270 0 24 24%27 stroke=%27%232522e8%27 stroke-width=%272%27%3E%3Cpath stroke-linecap=%27round%27 stroke-linejoin=%27round%27 d=%27M19 9l-7 7-7-7%27/%3E%3C/svg%3E');">
+                        <option value="">Choose Ward</option>
+                        <template x-for="w in wards" :key="w">
+                            <option :value="w" x-text="w"></option>
+                        </template>
+                    </select>
+                </div>
+                <div class="flex flex-col gap-1.5">
+                    <label class="text-[10px] font-bold uppercase tracking-widest text-[#2522e8]" for="sub-phone">Phone Number</label>
+                    <input id="sub-phone" type="tel" name="phone_number" placeholder="07XX XXX XXX"
+                        class="min-h-11 w-full rounded-lg border border-neutral-300 bg-white px-3 py-2.5 font-sans text-base text-neutral-900 placeholder:text-neutral-400 transition-colors focus:border-[#2522e8] focus:outline-none focus:ring-2 focus:ring-[#2522e8]/30">
+                </div>
+            </div>
+
+            <!-- Footer: Terms + compact button -->
+            <div class="flex flex-col gap-5 border-t border-dashed border-neutral-300/60 pt-6 sm:flex-row sm:items-center sm:justify-between">
+                <div class="flex flex-wrap gap-x-5 gap-y-2 text-[10px] font-bold uppercase tracking-widest text-[#2522e8]">
+                    <a href="#" class="underline decoration-[#2522e8]/40 underline-offset-2 transition hover:decoration-[#2522e8]">Privacy Policy</a>
+                    <a href="#" class="underline decoration-[#2522e8]/40 underline-offset-2 transition hover:decoration-[#2522e8]">Terms &amp; Conditions</a>
+                </div>
+                <button type="submit"
+                    class="inline-flex w-full shrink-0 items-center justify-center rounded-full bg-[#2522e8] px-6 py-2.5 font-display text-sm font-bold uppercase tracking-wide text-white shadow-md transition hover:bg-[#1a17c4] active:scale-[0.98] sm:w-auto">
+                    Subscribe
+                </button>
+            </div>
+        </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

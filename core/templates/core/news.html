@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="min-h-[40vh] bg-[#2522e8] flex flex-col items-center justify-center text-center px-6">
+    <h1 class="text-6xl md:text-9xl font-display text-white mb-6 uppercase">Latest News</h1>
+</section>
+
+<section class="py-20 bg-white px-6">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {% for article in news_articles %}
+        <div class="bg-gray-50 border-4 border-[#2522e8] p-8 flex flex-col justify-between">
+            <div>
+                <span class="text-[#ff9600] font-display text-xs tracking-widest">{{ article.date }}</span>
+                <h3 class="text-2xl font-display text-[#2522e8] mt-2 mb-4">{{ article.headline }}</h3>
+            </div>
+            <a href="{{ article.link }}" class="text-sm font-bold uppercase tracking-widest border-b-2 border-black inline-block w-fit">Read Article</a>
+        </div>
+        {% empty %}
+        <div class="col-span-full text-center py-20 italic text-gray-400">
+            Current campaign announcements will appear here soon.
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
